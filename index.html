@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Last 1%: Project ECHO</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="stage">
+  <canvas id="game" width="480" height="270"></canvas>
+  <div id="vfx"></div>
+
+  <!-- IN-GAME HUD -->
+  <div id="hud" class="hide">
+    <div id="wrist">
+      <div class="wl">WRIST MONITOR <b>WM-7719</b></div>
+      <div id="ebar"><i id="efill"></i></div>
+      <div class="erow"><span id="enum">100</span><small>ENERGY</small><span id="flash">LIGHT OFF</span></div>
+    </div>
+    <div id="roomname"></div>
+    <div id="objective"><span>CURRENT OBJECTIVE</span><p id="objtext"></p></div>
+    <div id="keys"><b>WASD</b> Move <b>SHIFT</b> Run <b>E</b> Interact <b>F</b> Light <b>R</b> Scan <b>I</b> Inventory <b>ESC</b> Pause</div>
+    <div id="prompt" class="hide"></div>
+    <div id="toasts"></div>
+    <div id="roomtitle"></div>
+  </div>
+
+  <div id="fade"></div>
+
+  <!-- ENDING -->
+  <div id="ending" class="hide">
+    <div id="endtext"></div>
+    <div id="endcredits" class="hide"><div id="creditroll"></div></div>
+    <div id="endsum" class="hide"></div>
+    <div id="endskip">E / CLICK — CONTINUE</div>
+  </div>
+
+  <!-- DIALOGUE -->
+  <div id="dialog" class="hide">
+    <div id="dname"></div>
+    <div id="dtext"></div>
+    <div id="dopts"></div>
+    <div id="dnext">E ▼</div>
+  </div>
+
+  <!-- COMPUTER TERMINAL -->
+  <div id="terminal" class="ov hide">
+    <div class="tframe">
+      <div class="thead"><span id="ttitle"></span><span id="tstatus"></span><button id="tclose">[ESC] LOG OFF</button></div>
+      <div id="tbody"></div>
+      <div class="tfoot"><span id="tfoot"></span><span>MOUSE + KEYBOARD ENABLED</span></div>
+    </div>
+  </div>
+
+  <!-- KEYPAD -->
+  <div id="keypad" class="ov hide">
+    <div class="kframe">
+      <div id="ktitle"></div>
+      <div id="kdisp"></div>
+      <div id="kgrid"></div>
+      <div id="khint"></div>
+    </div>
+  </div>
+
+  <!-- INVENTORY -->
+  <div id="inventory" class="ov hide">
+    <div class="panel inv">
+      <div class="ptitle"><span>BACKPACK</span>
+        <span class="tabs"><button data-tab="items" class="on">ITEMS</button><button data-tab="clues">CLUES</button></span>
+        <button id="invclose">[I] CLOSE</button></div>
+      <div class="invbody"><div id="invgrid"></div><div id="invinfo"></div></div>
+    </div>
+  </div>
+
+  <!-- MAIN MENU -->
+  <div id="menu" class="ov">
+    <div class="mwrap">
+      <div class="mpre">EMERGENCY POWER REMAINING</div>
+      <h1 class="glitch" data-t="THE LAST 1%">THE LAST 1%</h1>
+      <h2>PROJECT ECHO</h2>
+      <div class="mbtns">
+        <button data-act="new">NEW GAME</button>
+        <button data-act="continue" id="btncont">CONTINUE</button>
+        <button data-act="settings">SETTINGS</button>
+        <button data-act="credits">CREDITS</button>
+      </div>
+      <div id="mfound"></div>
+    </div>
+  </div>
+
+  <!-- PAUSE -->
+  <div id="pause" class="ov hide">
+    <div class="panel small">
+      <div class="ptitle"><span>PAUSED</span></div>
+      <div class="mbtns">
+        <button data-act="resume">RESUME</button>
+        <button data-act="restart">RESTART CHECKPOINT</button>
+        <button data-act="settings">SETTINGS</button>
+        <button data-act="mainmenu">MAIN MENU</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SETTINGS -->
+  <div id="settings" class="ov hide top">
+    <div class="panel small">
+      <div class="ptitle"><span>SETTINGS</span></div>
+      <label>MUSIC VOLUME <input type="range" id="volm" min="0" max="100"></label>
+      <label>SOUND EFFECTS <input type="range" id="vols" min="0" max="100"></label>
+      <div class="mbtns"><button data-act="fullscreen">TOGGLE FULLSCREEN</button><button data-act="back">BACK</button></div>
+    </div>
+  </div>
+
+  <!-- CREDITS -->
+  <div id="credits" class="ov hide top">
+    <div class="panel small">
+      <div class="ptitle"><span>CREDITS</span></div>
+      <p class="cred"><b>THE LAST 1%: PROJECT ECHO</b><br>A top-down adventure in six rooms and five endings.</p>
+      <p class="cred">Game design · story · code · pixel art · sound<br>All art and audio are generated procedurally in the browser.<br>No external assets.</p>
+      <p class="cred">Built with Claude.</p>
+      <div class="mbtns"><button data-act="back">BACK</button></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/core.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/rooms.js"></script>
+<script src="js/render.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/puzzles.js"></script>
+<script src="js/story.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
